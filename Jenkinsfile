@@ -18,5 +18,14 @@ pipeline {
       }
     }
 
+    stage('start3') {
+      steps {
+        timestamps() {
+          sleep 5
+        }
+
+      }
+    }
+
   }
 }
