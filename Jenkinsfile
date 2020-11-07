@@ -1,9 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('error') {
       steps {
-        sh 'echo "start test"'
+        sh '''#!bin/bash
+
+echo "start test"
+exit 0'''
       }
     }
 
