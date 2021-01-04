@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+    
+    environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+        WHO = sh (
+            script:       'whoami',
+            returnStdout: true
+            ).trim()
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                echo "Database engine is ${DB_ENGINE}"
+                echo "DISABLE_AUTH is ${DISABLE_AUTH}"
+                echo "WHO is ${WHO}"
+            }
+        }
+        stage('Result') {
+            steps {
+                echo "WHOAMI is ${WHO}"
+                /* sh 'printenv' */
+            }
+        }        
+    }
+}
